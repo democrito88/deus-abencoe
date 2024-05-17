@@ -1,0 +1,27 @@
+{
+  "name": "deus-abencoe",
+  "version": "0.0.1",
+  "description": "Um pacote com utilitários para facilitar o desenvolvimento front-end de projetos brasileiros",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/democrito88/deus-abencoe.git"
+  },
+  "keywords": [
+    "cpf",
+    "cnpj",
+    "máscara",
+    "monetária",
+    "dark-mode",
+    "progress-bar"
+  ],
+  "author": "“democrito88” <“d_who@hotmail.com”>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/democrito88/deus-abencoe/issues"
+  },
+  "homepage": "https://github.com/democrito88/deus-abencoe#readme"
+}

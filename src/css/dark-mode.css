@@ -1,0 +1,80 @@
+body {
+    padding: 0;
+    margin: 0;
+    transition: background-color 0.3s;
+}
+
+.dark-mode {
+    background-color: #242424;
+    color: #ffffff;
+}
+
+.espaco-toggle {
+    width: 50px;
+    height: 22px;
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 22px;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+}
+
+.espaco-toggle:after {
+    content: "";
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 18px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.botao-toggle {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.botao-toggle:checked + .espaco-toggle {
+    background: #242424;
+}
+
+.botao-toggle:checked + .espaco-toggle:after {
+    left: 49px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+.espaco-toggle:active:after {
+    width: 26px;
+}
+
+.espaco-toggle svg {
+    position: absolute;
+    width: 8px;
+    top: 3px;
+    z-index: 100;
+    transition: 0.3s;
+}
+
+.espaco-toggle svg.sun {
+    left: 6px;
+    fill: #fff;
+}
+
+.espaco-toggle svg.moon {
+    left: 34px;
+    fill: #7e7e7e;
+}
+
+.botao-toggle:checked + .espaco-toggle svg.sun {
+    fill: #7e7e7e;
+}
+
+.botao-toggle:checked + .espaco-toggle svg.moon {
+    fill: #fff;
+}
