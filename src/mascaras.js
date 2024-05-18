@@ -58,50 +58,44 @@ export function mascaraIPv4(input) {
     input.addEventListener('input', function(e) {
         let value = input.value;
         
-        // DEixa apenas dígitos e ponto
-        value = value.replace(/[^0-9.]/g, '');
+        // Deixa apenas dígitos e ponto
+        value = value.replace(/[^0-9]/g, '');
 
-        // Divide os valores em octetos
-        let octets = value.split('.').map(octet => parseInt(octet, 10));
-
-        // Impõe o valor máximo de 255 em cada octeto
-        for (let i = 0; i < octets.length; i++) {
-            if (isNaN(octets[i]) || octets[i] < 0 || octets[i] > 255) {
-                octets[i] = '';
-            } else {
-                octets[i] = octets[i].toString();
-            }
-        }
-
-        // junta as partes
-        value = octets.filter(octet => octet !== '').join('.');
-
-        // Limita os octetos a 4
-        if (octets.length > 4) {
-            octets = octets.slice(0, 4);
-        }
+        let octets = [];
+        value.length < 4 ? (octets[0] = parseInt(value.substring(0, 3)) > 255 ? 255 : parseInt(value.substring(0, 3))) : octets[0] = value.substring(0, 3);
+        value.length < 7 ? (octets[1] = parseInt(value.substring(3, 6)) > 255 ? 255 : parseInt(value.substring(3, 6))) : octets[1] = value.substring(3, 6);
+        value.length < 10 ? (octets[2] = parseInt(value.substring(6, 9)) > 255 ? 255 : parseInt(value.substring(6, 9))) : octets[2] = value.substring(6, 9);
+        value.length < 13 ? (octets[3] = parseInt(value.substring(9, 12)) > 255 ? 255 : parseInt(value.substring(9, 12 ))) : octets[3] = value.substring(9, 12);
         
-        input.value = value;
+        octets = octets.filter(octet => !isNaN(octet));
+
+        // junta os octetos
+        octets = octets.join('.');
+        
+        input.value = octets;
     });
 }
 
 export function mascaraIPv6(ip) {
-
-    // Remove tudo o que não é dígito, letra (a-f, A-F), ou dois pontos
-    let ipv6 = ip.replace(/[^0-9a-fA-F:]/g, "");
-
-    // Divida o valor em partes usando os dois pontos
-    let partes = ipv6.split(':');
-
-    // Limite cada parte a 4 caracteres
-    for (let i = 0; i < partes.length; i++) {
-        if (partes[i].length > 4) {
-            partes[i] = partes[i].slice(0, 4);
+    ip.addEventListener('input', function(e) {
+        // Remove tudo o que não é dígito, letra (a-f, A-F), ou dois pontos
+        let ipv6 = ip.value.replace(/[^0-9a-fA-F:]/g, "");
+        ipv6 = ipv6.split('').forEach((character, index) => index%2 ? ipv6.substring(index, index+2) : '');
+        console.log(ipv6)
+    
+        // Divida o valor em partes usando os dois pontos
+        let partes = ipv6.split(':');
+    
+        // Limite cada parte a 4 caracteres
+        for (let i = 0; i < partes.length; i++) {
+            if (partes[i].length > 4) {
+                partes[i] = partes[i].slice(0, 4);
+            }
         }
-    }
-
-    // Reúne as partes com dois pontos
-    return partes.join(':');
+    
+        // Reúne as partes com dois pontos
+        ip.value = partes.join(':');
+    });
 }
 
 export function teclaEHexOuDoisPontos(evt) {

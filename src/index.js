@@ -1,5 +1,5 @@
 import {darkmode} from './darkmode.js';
-import { mascaraCNPJ, mascaraCPF, mascaraIPv4, mascaraMoeda } from './mascaras.js';
+import { mascaraCNPJ, mascaraCPF, mascaraIPv4, mascaraIPv6, mascaraMoeda } from './mascaras.js';
 
 const toggleButton = document.getElementById('darkmode-toggle');
 toggleButton? darkmode(toggleButton) : "";
@@ -15,3 +15,6 @@ Array.from(moedaInputs).forEach(input => mascaraMoeda(input));
 
 const ipv4Inputs = document.getElementsByClassName('mascara-ipv4');
 Array.from(ipv4Inputs).forEach(input => mascaraIPv4(input));
+
+const ipv6Inputs = document.getElementsByClassName('mascara-ipv6');
+Array.from(ipv6Inputs).forEach(input => mascaraIPv6(input));
