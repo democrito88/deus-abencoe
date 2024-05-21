@@ -79,12 +79,12 @@ export function mascaraIPv4(input) {
 export function mascaraIPv6(ip) {
     ip.addEventListener('input', function(e) {
         // Remove tudo o que não é dígito, letra (a-f, A-F), ou dois pontos
-        let ipv6 = ip.value.replace(/[^0-9a-fA-F:]/g, "");
-        ipv6 = ipv6.split('').forEach((character, index) => index%2 ? ipv6.substring(index, index+2) : '');
-        console.log(ipv6)
-    
+        let ipv6 = ip.value.replace(/[^0-9a-fA-F]/g, "");
+        let partes = ipv6.split('').map((character, index) => index < 32 ? (index%4 === 0? ipv6.substring(index, index+4) : '') : '')
+        .filter(character => character !== "");
+        console.log(partes);
         // Divida o valor em partes usando os dois pontos
-        let partes = ipv6.split(':');
+        //let partes = ipv6.split(':');
     
         // Limite cada parte a 4 caracteres
         for (let i = 0; i < partes.length; i++) {
