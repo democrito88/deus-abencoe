@@ -1,8 +1,12 @@
-import {darkmode} from './darkmode.js';
-import { mascaraCNPJ, mascaraCPF, mascaraIPv4, mascaraIPv6, mascaraMoeda } from './mascaras.js';
+import { darkmode } from './darkmode.js';
+import { mascaraCNPJ, mascaraCPF, mascaraIPv4, mascaraIPv6, mascaraMoeda, mascaraCEP } from './mascaras.js';
+import { validarCPF, validarCNPJ } from './validador.js';
+import { consultarCEP } from './buscaCep.js';
+
+
 
 const toggleButton = document.getElementById('darkmode-toggle');
-toggleButton? darkmode(toggleButton) : "";
+toggleButton ? darkmode(toggleButton) : "";
 
 const cpfInputs = document.getElementsByClassName('mascara-cpf');
 Array.from(cpfInputs).forEach(input => mascaraCPF(input));
@@ -18,3 +22,17 @@ Array.from(ipv4Inputs).forEach(input => mascaraIPv4(input));
 
 const ipv6Inputs = document.getElementsByClassName('mascara-ipv6');
 Array.from(ipv6Inputs).forEach(input => mascaraIPv6(input));
+
+const cepInputs = document.getElementsByClassName('mascara-cep');
+Array.from(cepInputs).forEach(input => mascaraCEP(input));
+
+const validadorCPFInputs = document.getElementsByClassName('valida-CPF');
+Array.from(validadorCPFInputs).forEach(input => validarCPF(input));
+
+const validadorCNPJInputs = document.getElementsByClassName('valida-CNPJ');
+Array.from(validadorCNPJInputs).forEach(input => validarCNPJ(input));
+
+const buscarCEPInputs = document.getElementsByClassName('busca-cep');
+Array.from(buscarCEPInputs).forEach(input => consultarCEP(input));
+
+// npm install pikaday

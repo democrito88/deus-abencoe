@@ -136,3 +136,22 @@ export function teclaNumero(evt) {
     }
     return true;
 }
+
+export function mascaraCEP(input) {
+    input.addEventListener('input', function(e) {
+        let value = input.value;
+        
+        // Remove todos os caracteres que não são dígitos
+        value = value.replace(/\D/g, '');
+        
+        // Formata o valor como um CEP (99999-999)
+        if (value.length > 5) {
+            value = value.substring(0, 5) + '-' + value.substring(5, 8);
+        } else {
+            value = value.substring(0, 5);
+        }
+        
+        // Atualiza o valor do input
+        input.value = value;
+    });
+}
