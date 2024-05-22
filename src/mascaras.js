@@ -155,3 +155,39 @@ export function mascaraCEP(input) {
         input.value = value;
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const camposMonetarios = document.querySelectorAll('.valor-monetario');
+
+    camposMonetarios.forEach(campo => {
+        campo.addEventListener('input', function() {
+            formatarMoeda(this);
+        });
+    });
+});
+
+export function formatarMoeda(element) {
+    let valor = element.value;
+
+    // Remove todos os caracteres não numéricos
+    valor = valor.replace(/\D/g, '');
+
+    // Converte o valor para um número inteiro
+    valor = parseInt(valor);
+
+    // Verifica se o valor é um número
+    if (isNaN(valor)) {
+        element.value = '';
+        return;
+    }
+
+    // Converte o valor para uma string e adiciona os separadores de milhar e o símbolo de reais
+    valor = (valor / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+    // Atualiza o valor do campo de entrada
+    element.value = valor;
+}
+
+
+
+

@@ -6,7 +6,7 @@ body {
 
 .dark-mode {
     background-color: #242424;
-    color: #ffffff;
+    color: #141414;
 }
 
 .espaco-toggle {
@@ -77,4 +77,20 @@ body {
 
 .botao-toggle:checked + .espaco-toggle svg.moon {
     fill: #fff;
+}
+
+dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode p,
+.dark-mode span,
+.dark-mode td,
+.dark-mode th,
+.dark-mode .form-label
+
+{
+    color: #000 !important;
 }
