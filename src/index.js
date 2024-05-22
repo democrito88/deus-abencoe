@@ -2,8 +2,7 @@ import { darkmode } from './darkmode.js';
 import { mascaraCNPJ, mascaraCPF, mascaraIPv4, mascaraIPv6, mascaraMoeda, mascaraCEP } from './mascaras.js';
 import { validarCPF, validarCNPJ } from './validador.js';
 import { consultarCEP } from './buscaCep.js';
-
-
+import './../node_modules/flatpickr/dist/flatpickr.js';
 
 const toggleButton = document.getElementById('darkmode-toggle');
 toggleButton ? darkmode(toggleButton) : "";
@@ -35,4 +34,8 @@ Array.from(validadorCNPJInputs).forEach(input => validarCNPJ(input));
 const buscarCEPInputs = document.getElementsByClassName('busca-cep');
 Array.from(buscarCEPInputs).forEach(input => consultarCEP(input));
 
-// npm install pikaday
+const buscarDataHoraInputs = document.getElementsByClassName('data-hora');
+Array.from(buscarDataHoraInputs).forEach(input => flatpickr(".data-hora", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+}));

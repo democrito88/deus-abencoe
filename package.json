@@ -2,7 +2,7 @@
   "name": "deus-abencoe",
   "version": "0.0.1",
   "description": "Um pacote com utilitários para facilitar o desenvolvimento front-end de projetos brasileiros",
-  "main": "index.js",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,5 +28,8 @@
   "devDependencies": {
     "css-loader": "^6.0.0",
     "style-loader": "^3.0.0"
+  },
+  "dependencies": {
+    "flatpickr": "^4.6.13"
   }
 }
