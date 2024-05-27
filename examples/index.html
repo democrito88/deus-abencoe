@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="./../src/css/dark-mode.css">
-    <link rel="stylesheet" href="./../node_modules/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="./../src/css/dark-mode.css"><!--CSS do modo escuro -->
+    <link rel="stylesheet" href="./../node_modules/flatpickr/dist/flatpickr.min.css"> <!--CSS do Flatpickr -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script type="module" src="./../src/index.js"></script>
+    <!--CSS Boostrap 5  -->
+    <script type="module" src="./../src/index.js"></script><!-- JS responsavel por importar os codigos para o HTML -->
     <title>Deus Abençoe - Exemplos</title>
     <style>
         body {
@@ -23,12 +24,6 @@
             padding: 2em;
         }
 
-        .card {
-            padding: 0.5em;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.4);
-        }
 
         input[type='text'] {
             border: 1px solid #ccc;
@@ -78,10 +73,10 @@
 
         .code-container {
             position: relative;
-            width: fit-content;
             background-color: #272822;
-            padding: 10px;
             border-radius: 4px;
+            display: flex;
+
         }
 
         .text-container {
@@ -91,10 +86,12 @@
             color: #d63384;
             border-radius: 4px;
             font-size: 16px;
-            white-space: pre;
+            align-items: flex-start !important;
             text-align: left !important;
+            text-wrap: nowrap;
             overflow: auto;
             width: 1250px;
+
             /* Ajuste conforme necessário */
         }
 
@@ -109,28 +106,166 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+
         }
 
         button:hover {
             background-color: #0056b3;
         }
+
+        /* Back to Top Button */
+        #backToTopBtn {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            top: 89%;
+            z-index: 99;
+            /* Stay on top */
+            border: none;
+            /* Remove borders */
+            outline: none;
+            /* Remove outline */
+            background-color: #000;
+            /* Black background color */
+            color: white;
+            /* White text color */
+            cursor: pointer;
+            /* Pointer/hand icon */
+            padding: 15px;
+            /* Some padding */
+            border-radius: 10px;
+            /* Rounded corners */
+            font-size: 18px;
+            /* Increase font size */
+        }
+
+        #backToTopBtn:hover {
+            background-color: #555;
+            /* Add a dark-grey background on hover */
+        }
+
+
+        @media screen and (max-width: 900px) {
+            .text-container {
+                margin: 0;
+                padding: auto;
+                background-color: #272822;
+                color: #d63384;
+                border-radius: 4px;
+                font-size: 16px;
+                align-items: flex-start !important;
+                text-align: left !important;
+                text-wrap: nowrap;
+                overflow: auto;
+                width: 650px !important;
+
+                /* Ajuste conforme necessário */
+            }
+
+            .list-group {
+                position: relative;
+                top: 135px;
+                /* Adjust the value as needed */
+                left: 0;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                background-color: #fff;
+                /* Cor de fundo */
+                border-right: 1px solid #ddd;
+                /* Borda à direita */
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                /* Sombra */
+                z-index: 1000;
+                /* Certifique-se de que está acima de outros elementos */
+                width: 150px;
+                display: flex;
+                align-items: center;
+                /* Vertically center */
+                justify-content: center;
+                /* Horizontally center */
+            }
+
+            #backToTopBtn {
+                display: none;
+                /* Hidden by default */
+                position: fixed;
+                top: 89%;
+                z-index: 99;
+                /* Stay on top */
+                border: none;
+                /* Remove borders */
+                outline: none;
+                /* Remove outline */
+                background-color: #000;
+                /* Black background color */
+                color: white;
+                /* White text color */
+                cursor: pointer;
+                /* Pointer/hand icon */
+                padding: 15px;
+                /* Some padding */
+                border-radius: 10px;
+                /* Rounded corners */
+                font-size: 13px;
+                width: 120px;
+                /* Increase font size */
+            }
+
+            #backToTopBtn:hover {
+                background-color: #555;
+                /* Add a dark-grey background on hover */
+            }
+
+
+        }
     </style>
 </head>
 
 <body>
-    <ul class="list-group">
-        <li class="list-group-item"><a href="#dark">Dark Mode </a></li>
-        <li class="list-group-item"><a href="#mascaras">Mascaras </a></li>
-        <li class="list-group-item"><a href="#validadores">Validadores </a></li>
-        <li class="list-group-item"><a href="#cep">Buscar CEP </a></li>
-        <li class="list-group-item"><a href="#date">DatePicker </a></li>
-    </ul>
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6">
+                <button onclick="topFunction()" id="backToTopBtn" title="Go to top">Voltar ao Topo</button>
+            </div>
+        </div>
+
+        <ul class="list-group card">
+            <li class="list-group-item"><a href="#instalacao">Instalação </a></li>
+            <li class="list-group-item"><a href="#dark">Dark Mode </a></li>
+            <li class="list-group-item"><a href="#mascaras">Mascaras </a></li>
+            <li class="list-group-item"><a href="#validadores">Validadores </a></li>
+            <li class="list-group-item"><a href="#cep">Buscar CEP </a></li>
+            <li class="list-group-item"><a href="#date">Flatpickr</a></li>
+            <li class="list-group-item"><a href="#rmascara">Removendo Mascara</a></li>
+        </ul>
+    </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h3>Modo Escuro (Dark Mode)</h3>
-                <section id="dark">
-                    <div class="card">
+            <section id="instalacao">
+                <div class="col-md-12">
+                    <h3>Como instalar para usar os codigos</h3>
+
+                    <div class="card p-4">
+                        <h5>HTML</h5>
+                        <img src="../src/img/tuto.png">
+
+                        <p class="alert alert-warning mt-2 text-center">
+                            <b>Certifique-se de que seu código inclua essas chamadas para garantir que irá funcionar
+                                corretamente.</b>
+                        </p>
+
+                    </div>
+            </section>
+            <hr class="mt-4">
+            <section id="dark">
+                <div class="col-md-12">
+                    <h3>Modo Escuro (Dark Mode)</h3>
+
+                    <div class="card p-4">
                         <h5>Darkmode button</h5>
                         <input type="checkbox" id="darkmode-toggle" class="botao-toggle" />
                         <label for="darkmode-toggle" class="espaco-toggle">
@@ -146,103 +281,115 @@
                             </svg>
                         </label>
                         <h4 class="mt-3">Modo de Uso</h4>
-                        <div class="code-container text-container">
-                            <pre class="text-container text-left" id="code">
-                                &lt;input type="checkbox" id="darkmode-toggle" class="botao-toggle" /&gt;
-                                &lt;label for="darkmode-toggle" class="espaco-toggle"&gt;
-                                    &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sun sun" viewBox="0 0 16 16"&gt;
-                                        &lt;path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2a.5.5 0 0 1 .5-.5zM4.636 4.636a.5.5 0 0 1 .707 0l1.414 1.414a.5.5 0 1 1-.707.707L4.636 5.343a.5.5 0 0 1 0-.707zm6.364 6.364a.5.5 0 0 1 .707 0l1.414 1.414a.5.5 0 0 1-.707.707L10.293 11.7a.5.5 0 0 1 0-.707zM0 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 8zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zM4.636 11.7a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 1 1-.707.707L4.636 12.407a.5.5 0 0 1 0-.707zm6.364-6.364a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 1 1-.707.707L10.293 5.343a.5.5 0 0 1 0-.707z"/&gt;
-                                    &lt;/svg&gt;
-                                    &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon moon" viewBox="0 0 16 16"&gt;
-                                        &lt;path d="M6 .278a.77.77 0 0 1 1.08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277a7.277 7.277 0 0 0 2.77-.792.77.77 0 0 1 1.163.69A8 8 0 1 1 6 .278z"/&gt;
-                                    &lt;/svg&gt;
-                                &lt;/label&gt;
-                                        </pre>
-                            <button  class="copyButton">Copiar</button>
+                        <div class="code-container text-container justify-content-left ">
+                            <p>
+                                &lt;input type="checkbox" id="darkmode-toggle" class="botao-toggle" /&gt;<br>
+                                &lt;label for="darkmode-toggle" class="espaco-toggle"&gt;<br>
+                                &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-sun sun" viewBox="0 0 16 16"&gt;<br>
+                                &lt;path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5
+                                0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1
+                                0v-2a.5.5 0 0 1 .5-.5zM4.636 4.636a.5.5 0 0 1 .707 0l1.414 1.414a.5.5 0 1
+                                1-.707.707L4.636 5.343a.5.5 0 0 1 0-.707zm6.364 6.364a.5.5 0 0 1 .707 0l1.414 1.414a.5.5
+                                0 0 1-.707.707L10.293 11.7a.5.5 0 0 1 0-.707zM0 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0
+                                1h-2A.5.5 0 0 1 0 8zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zM4.636
+                                11.7a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 1 1-.707.707L4.636 12.407a.5.5 0 0 1
+                                0-.707zm6.364-6.364a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 1 1-.707.707L10.293
+                                5.343a.5.5 0 0 1 0-.707z"/&gt;<br>
+                                &lt;/svg&gt;<br>
+                                &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-moon moon" viewBox="0 0 16 16"&gt;<br>
+                                &lt;path d="M6 .278a.77.77 0 0 1 1.08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277
+                                7.318 7.277a7.277 7.277 0 0 0 2.77-.792.77.77 0 0 1 1.163.69A8 8 0 1 1 6 .278z"/&gt;<br>
+                                &lt;/svg&gt;<br>
+                                &lt;/label&gt;<br>
+                            </p>
+
+                            <button class="copyButton">Copiar</button>
                         </div>
                     </div>
-                </section>
-            </div>
+            </section>
+
             <hr class="mt-4">
             <section id="mascaras">
                 <div class="col-md-12">
                     <h3>Mascaras</h3>
-                    <div class="card mt-3">
+                    <div class="card p-4 mt-3">
                         <h5>Máscara de CPF</h5>
                         <input type="text" class="mascara-cpf">
                         <h4 class="mt-3">Modo de Uso</h4>
                         <div class="code-container text-container">
-                            <pre class="text-container text-left" id="code">
+                            <p>
                                 <xmp>
-                                <input type="text" class="mascara-cpf">
-                            </xmp>
-                            </pre>
-                            <button  class="copyButton">Copiar</button>
+                                    <input type="text" class="mascara-cpf">
+                                </xmp>
+                            </p>
+                            <button class="copyButton">Copiar</button>
                         </div>
                     </div>
-                    <div class="card mt-3">
+                    <div class="card p-4 mt-3">
                         <h5>Máscara de CNPJ</h5>
                         <input type="text" class="mascara-cnpj">
                         <h4 class="mt-3">Modo de Uso</h4>
                         <div class="code-container text-container">
-                            <pre class="text-container text-left" id="code">
+                            <p>
                                 <xmp>
                                     <input type="text" class="mascara-cnpj">
-                            </xmp>
-                            </pre>
-                            <button  class="copyButton">Copiar</button>
+                                </xmp>
+                            </p>
+                            <button class="copyButton">Copiar</button>
                         </div>
                     </div>
-                    <div class="card mt-3">
+                    <div class="card p-4 mt-3">
                         <h5>Máscara de IPv4</h5>
                         <input type="text" class="mascara-ipv4">
                         <h4 class="mt-3">Modo de Uso</h4>
                         <div class="code-container text-container">
-                            <pre class="text-container text-left" id="code">
+                            <p>
                                 <xmp>
                                     <input type="text" class="mascara-ipv4">
-                            </xmp>
-                            </pre>
-                            <button  class="copyButton">Copiar</button>
+                                </xmp>
+                            </p>
+                            <button class="copyButton">Copiar</button>
                         </div>
                     </div>
-                    <div class="card mt-3">
+                    <div class="card p-4 mt-3">
                         <h5>Máscara de IPv6</h5>
                         <input type="text" class="mascara-ipv6">
                         <h4 class="mt-3">Modo de Uso</h4>
                         <div class="code-container text-container">
-                            <pre class="text-container text-left" id="code">
+                            <p>
                                 <xmp>
-                                <input type="text" class="mascara-ipv6">
-                            </xmp>
-                            </pre>
-                            <button  class="copyButton">Copiar</button>
+                                    <input type="text" class="mascara-ipv6">
+                                </xmp>
+                            </p>
+                            <button class="copyButton">Copiar</button>
                         </div>
                     </div>
-                    <div class="card mt-3">
+                    <div class="card p-4 mt-3">
                         <h5>Máscara de CEP</h5>
                         <input type="text" class="mascara-cep">
                         <h4 class="mt-3">Modo de Uso</h4>
                         <div class="code-container text-container">
-                            <pre class="text-container text-left" id="code">
+                            <p>
                                 <xmp>
                                     <input type="text" class="mascara-cep">
-                            </xmp>
-                            </pre>
-                            <button  class="copyButton">Copiar</button>
+                                </xmp>
+                            </p>
+                            <button class="copyButton">Copiar</button>
                         </div>
                     </div>
-                    <div class="card mt-3">
+                    <div class="card p-4 mt-3">
                         <h5>Máscara monetária</h5>
                         <input type="text" class="valor-monetario">
                         <h4 class="mt-3">Modo de Uso</h4>
                         <div class="code-container text-container">
-                            <pre class="text-container text-left" id="code">
+                            <p>
                                 <xmp>
                                     <input type="text" class="valor-monetario">
-                            </xmp>
-                            </pre>
-                            <button  class="copyButton">Copiar</button>
+                                </xmp>
+                            </p>
+                            <button class="copyButton">Copiar</button>
                         </div>
                     </div>
                 </div>
@@ -251,42 +398,42 @@
             <section id="validadores">
                 <div class="col-md-12">
                     <h3>Validadores</h3>
-                    <div class="card mt-3">
+                    <div class="card p-4 mt-3">
                         <h5>Validador de CPF</h5>
                         <input type="text" class="valida-CPF" autocomplete="off">
                         <br>
                         <small id="cpf-message" class="invalid-feedback"></small>
                         <h4 class="mt-3">Modo de Uso</h4>
                         <div class="code-container text-container">
-                            <pre class="text-container text-left" id="code">
+                            <p>
                                 <xmp>
                                     <!--Para chamar o input-->
                                     <input type="text" class="valida-CPF" autocomplete="off">
-                        <br>
-                        <!--small para mostra menssagem de erro.-->
-                        <small id="cpf-message" class="invalid-feedback"></small>
-                            </xmp>
-                            </pre>
-                            <button  class="copyButton">Copiar</button>
+                                    <br>
+                                    <!--small para mostra menssagem de erro.-->
+                                    <small id="cpf-message" class="invalid-feedback"></small>
+                                </xmp>
+                            </p>
+                            <button class="copyButton">Copiar</button>
                         </div>
                     </div>
-                    <div class="card mt-3">
+                    <div class="card p-4 mt-3">
                         <h5>Validador de CNPJ</h5>
                         <input type="text" class="valida-CNPJ" autocomplete="off">
                         <br>
                         <small id="cnpj-message" class="invalid-feedback"></small>
                         <h4 class="mt-3">Modo de Uso</h4>
                         <div class="code-container text-container">
-                            <pre class="text-container text-left" id="code">
+                            <p>
                                 <xmp>
                                     <!--Para chamar o input-->
                                     <input type="text" class="valida-CNPJ" autocomplete="off">
-                        <br>
-                        <!--small para mostra menssagem de erro.-->
-                        <small id="cnpj-message" class="invalid-feedback"></small>
-                            </xmp>
-                            </pre>
-                            <button  class="copyButton">Copiar</button>
+                                    <br>
+                                    <!--small para mostra menssagem de erro.-->
+                                    <small id="cnpj-message" class="invalid-feedback"></small>
+                                </xmp>
+                            </p>
+                            <button class="copyButton">Copiar</button>
                         </div>
                     </div>
                 </div>
@@ -294,7 +441,7 @@
             <hr class="mt-4">
             <section id="cep">
                 <h3>Busca de CEP</h3>
-                <div class="card">
+                <div class="card p-4">
                     <label for="cep">Busca por CEP:</label>
                     <input type="text" size="60" class="busca-cep" id="cep" /><br />
                     <label for="rua">Rua:</label>
@@ -310,48 +457,86 @@
                     <small class="cep-message"></small>
                     <h4 class="mt-3">Modo de Uso</h4>
                     <div class="code-container text-container">
-                        <pre class="text-container text-left" id="code">
-                                <xmp>
-                                    <!--Para chamar o input-->
-                                    <label for="cep">Busca por CEP:</label>
-                    <input type="text" size="60" class="busca-cep" id="cep" /><br />
-                    <label for="rua">Rua:</label>
-                    <input name="rua" type="text" id="rua" class="endereco rua" size="60" /><br />
-                    <label for="bairro">Bairro:</label>
-                    <input name="bairro" type="text" id="bairro" class="endereco bairro" size="40" /><br />
-                    <label for="cidade">Cidade:</label>
-                    <input name="cidade" type="text" id="cidade" class="endereco cidade" size="40" /><br />
-                    <label for="uf">Estado:</label>
-                    <input name="uf" type="text" id="uf" size="2" class="endereco uf" /><br />
-                    <label for="ibge">Codigo Ibge:</label>
-                    <input name="ibge" type="text" id="ibge" size="20" class="endereco ibge" /><br />
-                        <br>
-                        <!--small para mostra menssagem de erro.-->
-                        <small class="cep-message"></small>
+                        <p>
+                            <xmp>
+                                <!--Para chamar o input-->
+                                <label for="cep">Busca por CEP:</label>
+                                <input type="text" size="60" class="busca-cep" id="cep" /><br />
+                                <label for="rua">Rua:</label>
+                                <input name="rua" type="text" id="rua" class="endereco rua" size="60" /><br />
+                                <label for="bairro">Bairro:</label>
+                                <input name="bairro" type="text" id="bairro" class="endereco bairro" size="40" /><br />
+                                <label for="cidade">Cidade:</label>
+                                <input name="cidade" type="text" id="cidade" class="endereco cidade" size="40" /><br />
+                                <label for="uf">Estado:</label>
+                                <input name="uf" type="text" id="uf" size="2" class="endereco uf" /><br />
+                                <label for="ibge">Codigo Ibge:</label>
+                                <input name="ibge" type="text" id="ibge" size="20" class="endereco ibge" /><br />
+                                <br>
+                                <!--small para mostra menssagem de erro.-->
+                                <small class="cep-message"></small>
                             </xmp>
-                            </pre>
-                        <button  class="copyButton">Copiar</button>
+                        </p>
+                        <button class="copyButton">Copiar</button>
                     </div>
                 </div>
             </section>
             <hr class="mt-4">
             <section id="date">
-                <div class="card">
+                <div class="card p-4">
                     <h5>Datetime Input</h5>
                     <input type="datetime-local" class="data-hora">
                     <h4 class="mt-3">Modo de Uso</h4>
                     <div class="code-container text-container">
-                        <pre class="text-container text-left" id="code">
-                                <xmp>
-                                    <input type="datetime-local" class="data-hora">
+                        <p>
+                            <xmp>
+                                <input type="datetime-local" class="data-hora">
                             </xmp>
-                            </pre>
-                        <button  class="copyButton">Copiar</button>
+                        </p>
+                        <button class="copyButton">Copiar</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="mt-4">
+            <section id="rmascara" class="d-flex justify-content-center">
+                <div class="card p-4">
+                    <h5>Removedor de Mascara de CPF e CNPJ</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>CPF</label>
+                            <input type="text" class="mascara-cpf sourceInput">
+                        </div>
+                        <div class="col-md-6">
+                            <label>CNPJ</label>
+                            <input type="text" class="mascara-cnpj sourceInputCNPJ">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label>Saida CPF</label>
+                            <input type="text" class="apenasNumeros targetInput">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Saida CNPJ</label>
+                            <input type="text" class="apenasNumeros targetInputCNPJ">
+                        </div>
+                    </div>
+                    <h4 class="mt-3">Modo de Uso</h4>
+                    <div class="code-container text-container">
+                        <p>
+                            <xmp>
+                                <input type="text" class="apenasNumeros ">
+                            </xmp>
+                        </p>
+                        <button class="copyButton">Copiar</button>
                     </div>
                 </div>
             </section>
         </div>
     </div>
+
+    <!-- JS que faz o "Copiar" funcionar -->
     <script src="./../src/botaoCopiar.js"></script>
 </body>
 

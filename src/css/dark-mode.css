@@ -79,9 +79,8 @@ body {
     fill: #fff;
 }
 
-dark-mode h1,
+.dark-mode h1,
 .dark-mode h2,
-.dark-mode h3,
 .dark-mode h4,
 .dark-mode h5,
 .dark-mode h6,
@@ -93,4 +92,8 @@ dark-mode h1,
 
 {
     color: #000 !important;
+}
+
+.dark-mode h3{
+    color: #fff !important;
 }

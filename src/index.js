@@ -42,3 +42,4 @@ Array.from(buscarDataHoraInputs).forEach(input => flatpickr(".data-hora", {
 
 const formataMoedaInputs = document.getElementsByClassName('valor-monetario');
 Array.from(moedaInputs).forEach(input => formatarMoeda(input));
+
