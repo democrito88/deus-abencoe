@@ -1,4 +1,4 @@
-# Deus Abençõe!
+# Deus Abençõe! 🙌
 
 ![Version](https://img.shields.io/badge/v1.0.0-%23d5a903.svg?style=for-the-badge)
 ![License](https://img.shields.io/badge/mit-%2335a439.svg?style=for-the-badge)
