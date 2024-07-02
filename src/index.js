@@ -3,6 +3,7 @@ import { mascaraCNPJ, mascaraCPF, mascaraIPv4, mascaraIPv6, mascaraMoeda, mascar
 import { validarCPF, validarCNPJ } from './validador.js';
 import { consultarCEP } from './buscaCep.js';
 import './../node_modules/flatpickr/dist/flatpickr.js';
+import {init, coloris, setInstance} from './../node_modules/@melloware/coloris/dist/esm/coloris.js';
 
 const toggleButton = document.getElementById('darkmode-toggle');
 toggleButton ? darkmode(toggleButton) : "";
@@ -43,3 +44,20 @@ Array.from(buscarDataHoraInputs).forEach(input => flatpickr(".data-hora", {
 const formataMoedaInputs = document.getElementsByClassName('valor-monetario');
 Array.from(moedaInputs).forEach(input => formatarMoeda(input));
 
+init();
+coloris({
+    el: '#coloris',
+    swatches: [
+      '#264653',
+      '#2a9d8f',
+      '#e9c46a',
+      '#f4a261',
+      '#e76f51',
+      '#d62828',
+      '#023e8a',
+      '#0077b6',
+      '#0096c7',
+      '#00b4d8',
+      '#48cae4'
+    ]
+  });

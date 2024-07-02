@@ -30,6 +30,7 @@
     "style-loader": "^3.0.0"
   },
   "dependencies": {
+    "@melloware/coloris": "^0.24.0",
     "flatpickr": "^4.6.13"
   }
 }
