@@ -5,7 +5,7 @@
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
 ![Colaborators](https://img.shields.io/badge/colaborators-2-%23c93333.svg?style=for-the-badge)
-![Dependecies](https://img.shields.io/badge/dependencies-1-%23d5a903.svg?style=for-the-badge)
+![Dependecies](https://img.shields.io/badge/dependencies-2-%23d5a903.svg?style=for-the-badge)
 
 O seu pacote de utilitários para formulários especialmente desenvolvidos para dev-brs! 🇧🇷
 
