@@ -1,6 +1,9 @@
 {
-  "name": "deus-abencoe",
+  "name": "@democrito88/deus-abencoe",
   "version": "1.0.1",
+  "publishConfig": {
+    "registry": "http://npm.pkg.github.com"
+  },
   "description": "Um pacote com utilitários para facilitar o desenvolvimento front-end de projetos brasileiros",
   "main": "src/index.js",
   "type": "module",
@@ -9,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/democrito88/deus-abencoe.git"
+    "url": "git:https://github.com/democrito88/deus-abencoe.git"
   },
   "keywords": [
     "cpf",
